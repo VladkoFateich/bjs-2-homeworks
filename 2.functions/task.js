@@ -4,6 +4,7 @@ function getArrayParams(arr) {
 
   max = -Infinity;
   min = Infinity;
+  sum = 0
   for (var i = 0; i < arr.length; i++) {
     if (max < arr[i]) max = arr[i];
     if (min > arr[i]) min = arr[i];
@@ -17,7 +18,7 @@ function getArrayParams(arr) {
 // Задание 2
 function worker(arr) {
   let sum;
-
+sum =0
   for (let i = 0; i < arr.length; i++) sum += arr[i];
 
   return sum;
@@ -40,10 +41,11 @@ function worker2(arr) {
   let min, max, dif;
   max = -Infinity;
   min = Infinity;
+  dif = 0
   for (let i = 0; i < arr.length; i++) {
     if (max < arr[i]) max = arr[i];
     if (min > arr[i]) min = arr[i];
-    dif = (max - min).Math.abs();
   }
+  dif = Math.abs(max - min);
   return dif;
 }
