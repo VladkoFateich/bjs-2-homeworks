@@ -1,8 +1,10 @@
 // Задание 1
 function getArrayParams(arr) {
   let min, max, sum, avg;
-
-  // Ваш код
+  min = Infinity;
+  min = Infinity;
+  arr = [];
+  for (i = -100; i <= 100; i++) arr.push(i);
 
   return { min: min, max: max, avg: avg };
 }
@@ -21,7 +23,7 @@ function makeWork(arrOfArr, func) {
 
   // Ваш кода
   // for ...
-  
+
   return max;
 }
 
