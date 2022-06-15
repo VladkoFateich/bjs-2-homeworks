@@ -1,3 +1,5 @@
+'use strict'
+
 function solveEquation(a, b, c) {
   if (typeof a !== "number") return [];
   if (typeof b !== "number") return [];
@@ -13,8 +15,9 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
+  totalAmount = contribution - amount
 
-  // код для задачи №2 писать здесь
+  // const sum = totalAmount * (1/12 + ((1/12 * percent) / (((1 + (1/12 * percent))**date) - 1)))
 
   return totalAmount;
 }

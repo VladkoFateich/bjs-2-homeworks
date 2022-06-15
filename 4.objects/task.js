@@ -1,10 +1,37 @@
 function Student(name, gender, age) {
+<<<<<<< HEAD
+    this.name = name
+    this.gender = gender
+    this.age = age
+    
+=======
   this.name = name;
   this.gender = gender;
   this.age = age;
+>>>>>>> 2b485fe8271126d3f1164cb9c7cca372d3832347
 }
+const firstStudent = new Student('Vasia', 'male', 37)
+const secondStudent = new Student('Mikolia', 'male', 30)
+const thirdStudent = new Student('Olia', 'female', 32)
+const fourthStudent = new Student('Sam', 'male', 39)
 
 Student.prototype.setSubject = function (subjectName) {
+<<<<<<< HEAD
+  return(`Name: ${this.name}`)
+}
+
+// Student.prototype.addMark = function (subjectMark) {
+//   return(`Mark: ${this.mark}`)
+// if (this.mark === undefined) {
+
+// }
+// }
+
+console.log(firstStudent)
+console.log(secondStudent)
+console.log(thirdStudent)
+console.log(fourthStudent)
+=======
   this.subject = subjectName;
 };
 
@@ -51,3 +78,4 @@ const thirdStudent = new Student("Olia", "female", 32);
 console.log(thirdStudent);
 const fourthStudent = new Student("Sam", "male", 39);
 console.log(fourthStudent);
+>>>>>>> 2b485fe8271126d3f1164cb9c7cca372d3832347
