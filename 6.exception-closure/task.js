@@ -1,72 +1,51 @@
-const parseCount = (str) => {
-<<<<<<< HEAD
-  let count = Number.parseInt(str)
-=======
-    let count = Number.parseInt(str);
->>>>>>> 768c25dacdbc34ca1fa0dce6ba65ee7f47de03f6
-    if (isNaN(count) === true) {
-      throw new Error("Невалидное значение");
-    } else {
-      return count;
-    }
-  };
-<<<<<<< HEAD
+function parseCount(value) {
+  let result = Number.parseInt(value);
+  if (isNaN(result)) {
+    throw new Error("Невалидное значение");
+  }
+  return result;
+}
 
-const validateCount = (str) => {
+function validateCount(value) {
   try {
-    return parseCount(str)
+    return parseCount(value);
   } catch (error) {
-    return error
+    return error;
   }
 }
 
 class Triangle {
   constructor(firstSide, secondSide, thirdSide) {
-    this.firstSide = firstSide
-    this.secondSide = secondSide
-    this.thirdSide = thirdSide
+    this.firstSide = firstSide;
+    this.secondSide = secondSide;
+    this.thirdSide = thirdSide;
+    if (
+      firstSide + secondSide < thirdSide ||
+      firstSide + thirdSide < secondSide ||
+      thirdSide + secondSide < firstSide
+    ) {
+      throw new Error("Треугольник с такими сторонами не существует");
+    }
   }
-  getPerimeter () {
-const perimeter = this.firstSide + this.secondSide + this.thirdSide
-  return perimeter
+  getPerimeter() {
+    return this.firstSide + this.secondSide + this.thirdSide;
+  }
+  getArea() {
+    const p = this.getPerimeter() / 2;
+    const area = Math.sqrt(
+      p * (p - this.firstSide) * (p - this.secondSide) * (p - this.thirdSide)
+    );
+    return Number(area.toFixed(3));
+  }
 }
-  }
 
-=======
-  
-  const validateCount = (str) => {
-    try {
-      return parseCount(str);
-    } catch (error) {
-      return error;
-    }
-  };
-  
-  console.log(parseCount("23"));
-  
-  class Triangle {
-    constructor(firstSide, secondSide, thirdSide) {
-      this.firstSide = firstSide;
-      this.secondSide = secondSide;
-      this.thirdSide = thirdSide;
-    }
-    check() {
-      const checkTriangle = (value) => {
-        if (this.firstSide + this.secondSide < this.thirdSide) {
-          throw new Error("Треугольник с такими сторонами не существует");
-        }
-      };
-    }
-    getPerimeter() {
-      const perimeter = this.firstSide + this.secondSide + this.thirdSide;
-      return this.perimeter;
-    }
-    getArea(S) {
-      let p = (1 / 2) * (this.firstSide + this.secondSide + this.thirdSide);
-      const S = Math.sqrt(
-        p * (p - this.firstSide) * (p - this.secondSide) * (p - this.thirdSide)
-      );
-    }
+function getTriangle(firstSide, secondSide, thirdSide) {
+  try {
+    return new Triangle(firstSide, secondSide, thirdSide);
+  } catch {
+    return {
+      getPerimeter: () => "Ошибка! Треугольник не существует",
+      getArea: () => "Ошибка! Треугольник не существует",
+    };
   }
-  
->>>>>>> 768c25dacdbc34ca1fa0dce6ba65ee7f47de03f6
+}
