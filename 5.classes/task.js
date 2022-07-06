@@ -3,11 +3,30 @@ class PrintEditionItem {
       this.name = name;
       this.releaseDate = releaseDate;
       this.pagesCount = pagesCount;
+
+      this.state = 100
+
       this.state = 100;
+
       this.type = null;
     }
     fix() {
       this.state *= 1.5;
+
+      
+    }
+    set() {
+      if (this.state < 0) {
+        return 0;
+      } else if (this.state > 100) {
+        return 100;
+      } else {
+        return this.state;
+      }
+    }
+    get() {
+      return this.state;
+
     }
     set state(value) {
       if (value < 0) {
@@ -20,6 +39,7 @@ class PrintEditionItem {
     }
     get state() {
       return this._state;
+
     }
   }
   const sherlock = new PrintEditionItem(
@@ -32,6 +52,44 @@ class PrintEditionItem {
   sherlock.fix();
   console.log(sherlock.state); //100
   
+
+  class Magazine extends PrintEditionItem{
+   constructor (name, releaseDate, pagesCount, state, type) {
+       super (name, releaseDate, pagesCount, state)
+    this.type = 'magazine'
+   }
+  }
+  class Book extends PrintEditionItem { 
+      constructor(name, releaseDate, pagesCount, state, type, author) {
+        super (name, releaseDate, pagesCount, state)
+this.type = 'book'
+this.author = 'author'
+      }
+  }
+  class NovelBook extends Book {
+    constructor(name, releaseDate, pagesCount, state, type, author) {
+        super (name, releaseDate, pagesCount, state)
+this.type = 'novel'
+this.author = 'author'
+      }
+  }
+  class FantasticBook extends Book {
+    constructor(name, releaseDate, pagesCount, state, type, author) {
+        super (name, releaseDate, pagesCount, state)
+this.type = 'FantasticBook'
+this.author = 'author'
+      }
+}
+class DetectiveBook extends Book {
+    constructor(name, releaseDate, pagesCount, state, type, author) {
+        super (name, releaseDate, pagesCount, state)
+this.type = 'DetectiveBookk'
+this.author = 'author'
+      }
+}
+  
+const picknick = new FantasticBook(
+
   class Magazine extends PrintEditionItem {
     constructor(name, releaseDate, pagesCount, state, type) {
       super(name, releaseDate, pagesCount, state);
@@ -68,6 +126,7 @@ class PrintEditionItem {
   }
   
   const picknick = new FantasticBook(
+
     "Аркадий и Борис Стругацкие",
     "Пикник на обочине",
     1972,
@@ -79,6 +138,24 @@ class PrintEditionItem {
   console.log(picknick.state); //10
   picknick.fix();
   console.log(picknick.state); //15
+
+
+
+  class Library {
+      constructor (name, books) {
+          this.name = 'name'
+          this.books = []
+      }
+      addBook(book) {
+          if(state > 30) {
+              this.book.push(books)
+          }
+      }
+      findBookBy(type, value) {
+          
+      }
+  }
+
   
   class Library {
     constructor(name, books) {
@@ -105,3 +182,4 @@ class PrintEditionItem {
     }
   }
   
+
