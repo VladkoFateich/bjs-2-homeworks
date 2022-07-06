@@ -1,41 +1,52 @@
 function Student(name, gender, age) {
-    this.name = name
-    this.gender = gender
-    this.age = age
-    
+  // Ваш код
+  this.name = name;
+  this.gender = gender;
+  this.age = age;
+
 }
-const firstStudent = new Student('Vasia', 'male', 37)
-const secondStudent = new Student('Mikolia', 'male', 30)
-const thirdStudent = new Student('Olia', 'female', 32)
-const fourthStudent = new Student('Sam', 'male', 39)
 
 Student.prototype.setSubject = function (subjectName) {
-  this.subject = subjectName
+this.subject = subjectName;//ваш код
 }
 
-Student.prototype.addMark = function (mark) {
-  if (this.marks === undefined) {
-    this.mark = [];
-  } 
-  this.marks.push(mark)
-};
+let st1 = new Student('vasya','male',25);
+let st2 = new Student('vasya1','male',25);
+let st3 = new Student('vasya2','male',25);
 
-Student.prototype.addMarks = function (...addingMarks) {
-  if(this.marks === undefined) {
-    this.marks = []
-  }
-  addingMarks.forEach(mark => this.marks.push(mark))
-};
+st1.setSubject("fckng_serious?");
+
+Student.prototype.addMark = function (mark) {
+if(!this?.marks)
+/*  if(this.marks === undefined) */{ 
+    this.marks = [mark];// добавить первую оценку 
+  } else {
+    this.marks.push(mark);// добавить вторую и последующие оценки в массив
+  };//ваш код
+}
+
+Student.prototype.addMarks = function (...marks) {
+/* if(this?.marks) */
+if(!this?.marks){ 
+    this.marks = [].concat(marks)
+    // добавить первую оценку 
+  } else {
+    this.marks = this.marks.concat(marks);// добавить вторую и последующие оценки в массив
+  };//ваш код
+}
 
 Student.prototype.getAverage = function () {
-  let sum = this.marks.reduce((a, b) => a + b);
-  let average = sum / this.marks.length
-  return average;
-};
+if(!this?.marks) {
+ return null;
+}
+else {
+  return (this.marks.reduce((previous,next) => previous+next))/(this.marks.length);
+  
+}
+}
 
-Student.prototype.exclude = function (reason) {
-  delete this.subject;
-  delete this.marks;
-  this.excluded = reason;
-};
-
+Student.prototype.exclude = function(reason) {
+ delete this.subject;
+ delete this.marks;
+ this.excluded = reason;
+}
